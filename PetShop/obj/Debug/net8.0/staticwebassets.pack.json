@@ -9,6 +9,26 @@
       "PackagePath": "staticwebassets/Images/bella.jpg"
     },
     {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/home_bird.jpg",
+      "PackagePath": "staticwebassets/Images/home_bird.jpg"
+    },
+    {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/home_cat.jpg",
+      "PackagePath": "staticwebassets/Images/home_cat.jpg"
+    },
+    {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/home_dog.jpg",
+      "PackagePath": "staticwebassets/Images/home_dog.jpg"
+    },
+    {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/milo.jpg",
+      "PackagePath": "staticwebassets/Images/milo.jpg"
+    },
+    {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/sunny.jpg",
+      "PackagePath": "staticwebassets/Images/sunny.jpg"
+    },
+    {
       "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },

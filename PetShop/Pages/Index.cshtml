@@ -1,10 +1,64 @@
 ﻿@page
 @model IndexModel
+
 @{
-    ViewData["Title"] = "Home page";
+    // Sets the page title displayed in the browser tab
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@* 
+    HERO SECTION — large title with background image or color 
+    This creates the main welcoming banner of the website.
+*@
+<div class="container text-center mt-5">
+
+    @* Main title *@
+    <h1 class="display-2 fw-bold mb-3">
+        Paws and Co. Pet Shop
+    </h1>
+
+    @* Subtitle tagline under the main title *@
+    <p class="lead mb-4">
+       🐾 Find Your New Best Friend Today 🐾
+    </p>
+
+    @* Optional call-to-action button navigating to the Animals page *@
+    <a asp-page="/Animals/Index" class="btn btn-primary btn-lg px-5">
+        Browse Animals
+    </a>
+</div>
+
+@* 
+    GALLERY SECTION 
+    Displays a few pet images in a responsive grid to make
+    the home page visually appealing.
+*@
+<div class="container mt-5">
+    <div class="row g-4">
+
+        @* Image 1 *@
+        <div class="col-12 col-sm-6 col-md-4">
+            <img src="/Images/home_dog.jpg" 
+                 alt="Dog"
+                 class="img-fluid rounded shadow"
+                 style="height: 250px; width: 100%; object-fit: cover;">
+        </div>
+
+        @* Image 2 *@
+        <div class="col-12 col-sm-6 col-md-4">
+            <img src="/Images/home_cat.jpg" 
+                 alt="Cat"
+                 class="img-fluid rounded shadow"
+                 style="height: 250px; width: 100%; object-fit: cover;">
+        </div>
+
+        @* Image 3 *@
+        <div class="col-12 col-sm-6 col-md-4">
+            <img src="/Images/home_bird.jpg" 
+                 alt="Bird"
+                 class="img-fluid rounded shadow"
+                 style="height: 250px; width: 100%; object-fit: cover;">
+        </div>
+
+    </div>
 </div>
