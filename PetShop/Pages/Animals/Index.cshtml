@@ -1,0 +1,74 @@
+@page
+@model PetShop.Pages.Animals.IndexModel
+
+@{
+    // Sets the browser tab title for this page
+    ViewData["Title"] = "Available Animals";
+}
+
+<h1 class="mb-4 text-center">Available Animals</h1>
+
+@* 
+    Bootstrap container to center and space content.
+    This ensures the layout stays clean regardless of screen size.
+*@
+<div class="container">
+
+    @*
+        "row g-4" creates a responsive grid layout with 1–4 columns depending on screen width:
+        - col-12  = 1 per row on mobile
+        - col-sm-6 = 2 per row on small screens
+        - col-md-4 = 3 per row on medium screens
+        - col-lg-3 = 4 per row on large screens
+
+        g-4 adds balanced spacing between cards (gutters)
+    *@
+    <div class="row g-4">
+
+        @* Loop through each animal from the database *@
+        @foreach (var animal in Model.Animals)
+        {
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                
+                @* Card container for each animal *@
+                <div class="card shadow-sm">
+
+                    @*
+                        Animal image displayed at a fixed height.
+                        object-fit: cover keeps the image from stretching
+                        and ensures all images stay uniform whether landscape or portrait.
+                    *@
+                    <img class="card-img-top" 
+                         src="@animal.ImagePath" 
+                         alt="@animal.Name"
+                         style="height: 200px; object-fit: cover;" />
+
+                    <div class="card-body">
+
+                        @* Animal name displayed as the title *@
+                        <h5 class="card-title">@animal.Name</h5>
+
+                        @* Category (species), breed, and price information *@
+                        <p class="card-text">
+                            <strong>Species:</strong> @animal.Category?.Name <br />
+                            <strong>Breed:</strong> @animal.Breed <br />
+                            <strong>Price:</strong> @animal.Price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
+
+                        </p>
+
+                        @*
+                            Button to navigate to the Details page.
+                            w-100 makes the button full width inside the card.
+                        *@
+                        <a asp-page="Details" 
+                           asp-route-id="@animal.AnimalId" 
+                           class="btn btn-primary w-100">
+                            View Details
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

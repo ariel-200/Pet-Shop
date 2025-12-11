@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /workspaces/Pet-Shop/PetShop
 build_property._RazorSourceGeneratorDebug = 
 
+[/workspaces/Pet-Shop/PetShop/Pages/Animals/Animals.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW5pbWFscy9BbmltYWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/workspaces/Pet-Shop/PetShop/Pages/Animals/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW5pbWFscy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/workspaces/Pet-Shop/PetShop/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
