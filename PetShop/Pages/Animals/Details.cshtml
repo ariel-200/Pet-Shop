@@ -14,7 +14,7 @@ else
 {
     <div class="container mt-4">
         <div class="row">
-            @* Left side: large animal image *@
+            @* Left column: large animal image *@
             <div class="col-md-5">
                 <img src="@Model.Animal.ImagePath"
                      alt="@Model.Animal.Name"
@@ -22,7 +22,7 @@ else
                      style="max-height: 350px; object-fit: cover;" />
             </div>
 
-            @* Right side: key details like name, species, breed, etc. *@
+            @* Right column: animal information and action buttons *@
             <div class="col-md-7">
                 <h2>@Model.Animal.Name</h2>
 
@@ -30,28 +30,48 @@ else
                     <strong>Species:</strong> @Model.Animal.Category?.Name <br />
                     <strong>Breed:</strong> @Model.Animal.Breed <br />
                     <strong>Gender:</strong> @Model.Animal.Gender <br />
-                    <strong>Age:</strong> @Model.Animal.Age @* you can add "years" or "weeks" in the label *@<br />
-
-                    @* Format price explicitly as US dollars *@
+                    <strong>Age:</strong> @Model.Animal.Age <br />
                     <strong>Price:</strong>
                     @Model.Animal.Price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
                 </p>
 
-                @* Description/story section *@
                 <div class="mb-3">
                     <strong>Description:</strong>
                     <p>@Model.Animal.Description</p>
                 </div>
 
-                @* Placeholder button for adding to cart (we will wire this up later) *@
-                <button class="btn btn-primary me-2" disabled>
-                    Add to Cart (coming soon)
-                </button>
+                @* If the animal is not available, show a message and hide Add to Cart *@
+                @if (!Model.Animal.IsAvailable)
+                {
+                    <div class="alert alert-warning">
+                        This animal has already been reserved and is no longer available.
+                    </div>
 
-                @* Back button to return to the list of animals *@
-                <a asp-page="Index" class="btn btn-secondary">
-                    Back to Animals
-                </a>
+                    <a asp-page="/ShoppingCart" class="btn btn-outline-secondary me-2">
+                        View Cart
+                    </a>
+
+                    <a asp-page="Index" class="btn btn-link">
+                        Back to Animals
+                    </a>
+                }
+                else
+                {
+                    @* Form with Add to Cart button for available animals *@
+                    <form method="post">
+                        <button type="submit" class="btn btn-primary me-2">
+                            Add to Cart
+                        </button>
+
+                        <a asp-page="/ShoppingCart" class="btn btn-outline-secondary me-2">
+                            View Cart
+                        </a>
+
+                        <a asp-page="Index" class="btn btn-link">
+                            Back to Animals
+                        </a>
+                    </form>
+                }
             </div>
         </div>
     </div>
