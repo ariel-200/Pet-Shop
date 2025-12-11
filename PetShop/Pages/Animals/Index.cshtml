@@ -1,74 +1,97 @@
 @page
 @model PetShop.Pages.Animals.IndexModel
 
+@using Microsoft.AspNetCore.Mvc.Rendering
+
 @{
-    // Sets the browser tab title for this page
+    // Sets the browser tab title
     ViewData["Title"] = "Available Animals";
 }
 
 <h1 class="mb-4 text-center">Available Animals</h1>
 
 @* 
-    Bootstrap container to center and space content.
-    This ensures the layout stays clean regardless of screen size.
+    FILTER SECTION
+    A simple form with a dropdown to filter animals by species (category).
+    The form uses GET so the filter value appears in the query string.
+*@
+<div class="container mb-4">
+    <form method="get">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <label class="form-label fw-semibold" for="SelectedCategoryId">
+                    Filter by Species
+                </label>
+
+                @*
+                    Dropdown is bound to SelectedCategoryId (in the PageModel).
+                    The SelectList is built from Model.Categories (CategoryId + Name).
+                    The first <option> is "All Species" with an empty value.
+                *@
+                <select asp-for="SelectedCategoryId"
+                        asp-items="@(new SelectList(Model.Categories, "CategoryId", "Name"))"
+                        class="form-select">
+                    <option value="">All Species</option>
+                </select>
+            </div>
+
+            <div class="col-md-2 d-flex align-items-end">
+                <button type="submit" class="btn btn-outline-primary w-100">
+                    Apply Filter
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@* 
+    ANIMAL CARDS GRID
+    Displays animals in a responsive Bootstrap card grid.
 *@
 <div class="container">
-
-    @*
-        "row g-4" creates a responsive grid layout with 1–4 columns depending on screen width:
-        - col-12  = 1 per row on mobile
-        - col-sm-6 = 2 per row on small screens
-        - col-md-4 = 3 per row on medium screens
-        - col-lg-3 = 4 per row on large screens
-
-        g-4 adds balanced spacing between cards (gutters)
-    *@
     <div class="row g-4">
 
-        @* Loop through each animal from the database *@
-        @foreach (var animal in Model.Animals)
+        @* If no animals match the current filter, show a message *@
+        @if (!Model.Animals.Any())
         {
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                
-                @* Card container for each animal *@
-                <div class="card shadow-sm">
+            <p class="text-center">No animals found for this filter.</p>
+        }
+        else
+        {
+            @* Loop through each animal and render a card *@
+            @foreach (var animal in Model.Animals)
+            {
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card shadow-sm">
 
-                    @*
-                        Animal image displayed at a fixed height.
-                        object-fit: cover keeps the image from stretching
-                        and ensures all images stay uniform whether landscape or portrait.
-                    *@
-                    <img class="card-img-top" 
-                         src="@animal.ImagePath" 
-                         alt="@animal.Name"
-                         style="height: 200px; object-fit: cover;" />
+                        @* Animal image with consistent size *@
+                        <img class="card-img-top"
+                             src="@animal.ImagePath"
+                             alt="@animal.Name"
+                             style="height: 200px; object-fit: cover;" />
 
-                    <div class="card-body">
+                        <div class="card-body">
+                            <h5 class="card-title">@animal.Name</h5>
 
-                        @* Animal name displayed as the title *@
-                        <h5 class="card-title">@animal.Name</h5>
+                            <p class="card-text">
+                                <strong>Species:</strong> @animal.Category?.Name <br />
+                                <strong>Breed:</strong> @animal.Breed <br />
 
-                        @* Category (species), breed, and price information *@
-                        <p class="card-text">
-                            <strong>Species:</strong> @animal.Category?.Name <br />
-                            <strong>Breed:</strong> @animal.Breed <br />
-                            <strong>Price:</strong> @animal.Price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
+                                @* Price formatted explicitly as US dollars *@
+                                <strong>Price:</strong>
+                                @animal.Price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
+                            </p>
 
-                        </p>
-
-                        @*
-                            Button to navigate to the Details page.
-                            w-100 makes the button full width inside the card.
-                        *@
-                        <a asp-page="Details" 
-                           asp-route-id="@animal.AnimalId" 
-                           class="btn btn-primary w-100">
-                            View Details
-                        </a>
-
+                            @* Button to go to the details page for this animal *@
+                            <a asp-page="Details"
+                               asp-route-id="@animal.AnimalId"
+                               class="btn btn-primary w-100">
+                                View Details
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         }
     </div>
 </div>
