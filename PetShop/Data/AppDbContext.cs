@@ -23,7 +23,6 @@ namespace PetShop.Data
             // Map C# class names to actual SQLite table names
             modelBuilder.Entity<Category>().ToTable("Category");
             modelBuilder.Entity<Animal>().ToTable("Animal");
-
-            
+        }
     }
 }
