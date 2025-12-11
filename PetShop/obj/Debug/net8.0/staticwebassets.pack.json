@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/PetShop.bundle.scp.css"
     },
     {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/bella.jpg",
+      "PackagePath": "staticwebassets/Images/bella.jpg"
+    },
+    {
       "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },

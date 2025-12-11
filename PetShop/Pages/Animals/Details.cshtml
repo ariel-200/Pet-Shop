@@ -1,0 +1,58 @@
+﻿@page
+@model PetShop.Pages.Animals.DetailsModel
+
+@{
+    // Set the page title based on the animal's name
+    ViewData["Title"] = Model.Animal?.Name ?? "Animal Details";
+}
+
+@if (Model.Animal == null)
+{
+    <p>Animal not found.</p>
+}
+else
+{
+    <div class="container mt-4">
+        <div class="row">
+            @* Left side: large animal image *@
+            <div class="col-md-5">
+                <img src="@Model.Animal.ImagePath"
+                     alt="@Model.Animal.Name"
+                     class="img-fluid rounded shadow-sm"
+                     style="max-height: 350px; object-fit: cover;" />
+            </div>
+
+            @* Right side: key details like name, species, breed, etc. *@
+            <div class="col-md-7">
+                <h2>@Model.Animal.Name</h2>
+
+                <p>
+                    <strong>Species:</strong> @Model.Animal.Category?.Name <br />
+                    <strong>Breed:</strong> @Model.Animal.Breed <br />
+                    <strong>Gender:</strong> @Model.Animal.Gender <br />
+                    <strong>Age:</strong> @Model.Animal.Age @* you can add "years" or "weeks" in the label *@<br />
+
+                    @* Format price explicitly as US dollars *@
+                    <strong>Price:</strong>
+                    @Model.Animal.Price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
+                </p>
+
+                @* Description/story section *@
+                <div class="mb-3">
+                    <strong>Description:</strong>
+                    <p>@Model.Animal.Description</p>
+                </div>
+
+                @* Placeholder button for adding to cart (we will wire this up later) *@
+                <button class="btn btn-primary me-2" disabled>
+                    Add to Cart (coming soon)
+                </button>
+
+                @* Back button to return to the list of animals *@
+                <a asp-page="Index" class="btn btn-secondary">
+                    Back to Animals
+                </a>
+            </div>
+        </div>
+    </div>
+}

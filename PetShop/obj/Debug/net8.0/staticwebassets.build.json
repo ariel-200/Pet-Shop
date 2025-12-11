@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QvdSMAM2XO65B8VXdnXlMv4iNU4eCs5A54iDP0OsiA4=",
+  "Hash": "TMxbtNK4sj6YpzMXktBneSsqdatyB8k3hLbzllJ5Tl8=",
   "Source": "PetShop",
   "BasePath": "_content/PetShop",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/bella.jpg",
+      "SourceId": "PetShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "/workspaces/Pet-Shop/PetShop/wwwroot/",
+      "BasePath": "_content/PetShop",
+      "RelativePath": "Images/bella.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Images/bella.jpg"
     },
     {
       "Identity": "/workspaces/Pet-Shop/PetShop/wwwroot/js/site.js",
