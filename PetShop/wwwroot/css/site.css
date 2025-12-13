@@ -20,3 +20,148 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* =========================
+   PetShop Theme: White + Blue
+   ========================= */
+
+/* Light blue palette */
+:root {
+    --ps-bg: #eef6ff;          
+    --ps-surface: #ffffff;
+    --ps-border: #d6e6ff;
+    --ps-text: #0f172a;
+    --ps-muted: #475569;
+    --ps-primary: #4f8cff;
+    --ps-primary-hover: #3b79f0;
+    --ps-accent: #a8d1ff;
+}
+
+
+/* Page background + general text */
+html, body {
+    background: var(--ps-bg);
+    color: var(--ps-text);
+}
+
+/* Keep content from feeling edge-to-edge */
+.container {
+    max-width: 1100px;
+}
+
+/* Navbar */
+.navbar {
+    background: var(--ps-surface) !important;
+    border-bottom: 1px solid var(--ps-border);
+}
+
+.navbar .navbar-brand {
+    font-weight: 800;
+    color: var(--ps-text) !important;
+    letter-spacing: 0.3px;
+}
+
+.navbar .nav-link {
+    color: var(--ps-muted) !important;
+    font-weight: 600;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: var(--ps-primary) !important;
+}
+
+/* Page headings */
+h1, h2, h3 {
+    font-weight: 800;
+}
+
+/* Cards / containers */
+.card,
+.table,
+.alert,
+.form-control,
+.form-select,
+.list-group-item {
+    border-color: var(--ps-border) !important;
+}
+
+.card {
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.table {
+    background: var(--ps-surface);
+    border-radius: 14px;
+    overflow: hidden; /* rounds table corners */
+}
+
+.table thead th {
+    background: #eef6ff;
+    color: var(--ps-text);
+    border-bottom: 1px solid var(--ps-border);
+}
+
+/* Buttons - make primary look like your theme */
+.btn-primary {
+    background-color: var(--ps-primary) !important;
+    border-color: var(--ps-primary) !important;
+    font-weight: 700;
+    border-radius: 12px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--ps-primary-hover) !important;
+    border-color: var(--ps-primary-hover) !important;
+}
+
+.btn-success {
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.btn-secondary,
+.btn-outline-secondary,
+.btn-outline-danger,
+.btn-outline-primary {
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+/* Forms */
+.form-control,
+.form-select,
+textarea {
+    border-radius: 12px;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+    border-color: var(--ps-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(79, 140, 255, 0.18) !important;
+}
+
+/* Footer */
+footer.footer {
+    background: var(--ps-surface);
+    border-top: 1px solid var(--ps-border);
+}
+
+footer.footer a {
+    color: var(--ps-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+footer.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Nice spacing for pages */
+main {
+    padding-top: 18px;
+    padding-bottom: 24px;
+}
