@@ -66,10 +66,17 @@
             <p><strong>Final Total:</strong> @Model.FinalTotal.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))</p>
         </div>
 
-        <form method="post" asp-page-handler="Checkout" class="mt-4">
-            <button type="submit" class="btn btn-success btn-lg">
-                Checkout
-            </button>
-        </form>
+        @* Checkout + Continue Shopping buttons side-by-side *@
+        <div class="mt-4 d-flex gap-2">
+            <form method="post" asp-page-handler="Checkout">
+                <button type="submit" class="btn btn-success btn-lg">
+                    Checkout
+                </button>
+            </form>
+
+            <a asp-page="/Animals/Index" class="btn btn-secondary btn-lg">
+                Continue Shopping
+            </a>
+        </div>
     }
 </div>

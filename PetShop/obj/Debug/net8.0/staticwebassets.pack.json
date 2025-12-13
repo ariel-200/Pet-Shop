@@ -5,8 +5,20 @@
       "PackagePath": "staticwebassets/PetShop.bundle.scp.css"
     },
     {
-      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/bella.jpg",
-      "PackagePath": "staticwebassets/Images/bella.jpg"
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/bear.jpg",
+      "PackagePath": "staticwebassets/Images/bear.jpg"
+    },
+    {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/cuddles.jpg",
+      "PackagePath": "staticwebassets/Images/cuddles.jpg"
+    },
+    {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/dash.jpg",
+      "PackagePath": "staticwebassets/Images/dash.jpg"
+    },
+    {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/emerald.jpg",
+      "PackagePath": "staticwebassets/Images/emerald.jpg"
     },
     {
       "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/home_bird.jpg",
@@ -21,8 +33,32 @@
       "PackagePath": "staticwebassets/Images/home_dog.jpg"
     },
     {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/kiwi.jpg",
+      "PackagePath": "staticwebassets/Images/kiwi.jpg"
+    },
+    {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/macy.jpg",
+      "PackagePath": "staticwebassets/Images/macy.jpg"
+    },
+    {
       "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/milo.jpg",
       "PackagePath": "staticwebassets/Images/milo.jpg"
+    },
+    {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/peanut.jpg",
+      "PackagePath": "staticwebassets/Images/peanut.jpg"
+    },
+    {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/simba.jpg",
+      "PackagePath": "staticwebassets/Images/simba.jpg"
+    },
+    {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/slink.jpg",
+      "PackagePath": "staticwebassets/Images/slink.jpg"
+    },
+    {
+      "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/snow.jpg",
+      "PackagePath": "staticwebassets/Images/snow.jpg"
     },
     {
       "Id": "/workspaces/Pet-Shop/PetShop/wwwroot/Images/sunny.jpg",
