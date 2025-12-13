@@ -1,0 +1,54 @@
+﻿@page
+@model PetShop.Pages.CheckoutConfirmationModel
+
+@{
+    ViewData["Title"] = "Checkout Confirmation";
+}
+
+<div class="container text-center mt-5">
+
+    <h1 class="display-4 text-success mb-3">
+       🐾 Adoption Confirmed! 🐾
+    </h1>
+
+    <p class="lead">
+        Thank you for adopting from Paws & Co. PetShop!
+    </p>
+
+    @if (Model.CheckedOutItems.Any())
+    {
+        <div class="mt-4 text-start mx-auto" style="max-width: 500px;">
+            <h4>You adopted:</h4>
+            <ul class="list-group mb-3">
+                @foreach (var item in Model.CheckedOutItems)
+                {
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>@item.Name (@item.Species)</span>
+                        <span>
+                            @item.Price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
+                        </span>
+                    </li>
+                }
+            </ul>
+
+            <h5 class="text-end">
+                Total Paid:
+                @Model.FinalTotal.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
+            </h5>
+        </div>
+    }
+
+    <p class="mt-4">
+        This is a make-believe checkout. No payment information was collected.
+        Your pets will remain unavailable unless an admin updates them later.
+    </p>
+
+    <div class="mt-4">
+        <a asp-page="/Index" class="btn btn-primary me-2">
+            Return Home
+        </a>
+        <a asp-page="/Animals/Index" class="btn btn-outline-secondary">
+            Browse Animals
+        </a>
+    </div>
+</div>

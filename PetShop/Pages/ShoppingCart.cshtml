@@ -9,14 +9,18 @@
 
 <div class="container">
 
-    @* If there are no items, show an empty cart message *@
     @if (!Model.CartItems.Any())
     {
         <p class="text-center">Your cart is currently empty.</p>
+
+        <div class="mt-4 text-center">
+            <a asp-page="/Animals/Index" class="btn btn-secondary">
+                Continue Shopping
+            </a>
+        </div>
     }
     else
     {
-        @* Button to clear the entire cart *@
         <div class="mb-3 text-end">
             <form method="post" asp-page-handler="Clear">
                 <button type="submit" class="btn btn-outline-danger">
@@ -25,14 +29,13 @@
             </form>
         </div>
 
-        @* Table listing each animal in the cart *@
         <table class="table table-striped align-middle">
             <thead>
                 <tr>
                     <th>Animal</th>
                     <th>Species</th>
                     <th>Price</th>
-                    <th style="width: 120px;"></th> @* Column for Remove button *@
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -45,10 +48,9 @@
                             @item.Price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
                         </td>
                         <td>
-                            @* Remove button for this specific animal *@
                             <form method="post" asp-page-handler="Remove">
                                 <input type="hidden" name="animalId" value="@item.AnimalId" />
-                                <button type="submit" class="btn btn-sm btn-outline-danger w-100">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
                                     Remove
                                 </button>
                             </form>
@@ -58,26 +60,16 @@
             </tbody>
         </table>
 
-        @* Display subtotal, sales tax, and final total *@
         <div class="mt-3">
-            <p>
-                <strong>Subtotal:</strong>
-                @Model.Subtotal.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
-            </p>
-            <p>
-                <strong>Sales Tax (7%):</strong>
-                @Model.SalesTax.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
-            </p>
-            <p>
-                <strong>Final Total:</strong>
-                @Model.FinalTotal.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))
-            </p>
+            <p><strong>Subtotal:</strong> @Model.Subtotal.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))</p>
+            <p><strong>Sales Tax (7%):</strong> @Model.SalesTax.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))</p>
+            <p><strong>Final Total:</strong> @Model.FinalTotal.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))</p>
         </div>
-    }
 
-    <div class="mt-4">
-        <a asp-page="/Animals/Index" class="btn btn-secondary">
-            Continue Shopping
-        </a>
-    </div>
+        <form method="post" asp-page-handler="Checkout" class="mt-4">
+            <button type="submit" class="btn btn-success btn-lg">
+                Checkout
+            </button>
+        </form>
+    }
 </div>
