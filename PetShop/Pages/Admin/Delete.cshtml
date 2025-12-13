@@ -1,0 +1,24 @@
+﻿@page "{id:int}"
+@model PetShop.Pages.Admin.DeleteModel
+
+@{
+    ViewData["Title"] = "Admin - Delete Animal";
+}
+
+<h1 class="mb-4 text-danger">Delete Animal</h1>
+
+@if (Model.Animal == null)
+{
+    <p>Animal not found.</p>
+}
+else
+{
+    <div class="alert alert-warning">
+        Are you sure you want to delete <strong>@Model.Animal.Name</strong>?
+    </div>
+
+    <form method="post">
+        <button type="submit" class="btn btn-danger me-2">Yes, Delete</button>
+        <a asp-page="Admin" class="btn btn-secondary">Cancel</a>
+    </form>
+}

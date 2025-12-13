@@ -1,0 +1,80 @@
+﻿@page "/Admin"
+@model PetShop.Pages.Admin.AdminModel
+
+@{
+    ViewData["Title"] = "Admin - Manage Animals";
+}
+
+<h1 class="mb-4">Admin - Manage Animals</h1>
+
+<div class="mb-3">
+    @* Link to Create page *@
+    <a asp-page="Create" class="btn btn-primary">
+        Add New Animal
+    </a>
+</div>
+
+@if (!Model.Animals.Any())
+{
+    <p>No animals found.</p>
+}
+else
+{
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Breed</th>
+                <th>Price</th>
+                <th>Available?</th>
+                <th style="width: 320px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in Model.Animals)
+            {
+                <tr>
+                    <td>
+                        <img src="@a.ImagePath"
+                             alt="@a.Name"
+                             style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;" />
+                    </td>
+                    <td>@a.Name</td>
+                    <td>@a.Category?.Name</td>
+                    <td>@a.Breed</td>
+                    <td>@a.Price.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("en-US"))</td>
+                    <td>
+                        @if (a.IsAvailable)
+                        {
+                            <span class="badge bg-success">Yes</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">No</span>
+                        }
+                    </td>
+                    <td>
+                        @* Edit + Delete links *@
+                        <a asp-page="Edit" asp-route-id="@a.AnimalId" class="btn btn-sm btn-outline-secondary">
+                            Edit
+                        </a>
+
+                        <a asp-page="Delete" asp-route-id="@a.AnimalId" class="btn btn-sm btn-outline-danger">
+                            Delete
+                        </a>
+
+                        @* Toggle availability button *@
+                        <form method="post" asp-page-handler="ToggleAvailability" class="d-inline">
+                            <input type="hidden" name="id" value="@a.AnimalId" />
+                            <button type="submit" class="btn btn-sm btn-outline-primary">
+                                Toggle Availability
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

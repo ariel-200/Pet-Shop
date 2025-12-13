@@ -1,0 +1,33 @@
+﻿@page "{id:int}"
+@model PetShop.Pages.Admin.EditModel
+
+@{
+    ViewData["Title"] = "Admin - Edit Animal";
+}
+
+<h1 class="mb-4">Edit Animal</h1>
+
+<form method="post" style="max-width: 700px;">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input type="hidden" asp-for="Animal.AnimalId" />
+
+    <div class="mb-3">
+        <label asp-for="Animal.Name" class="form-label fw-semibold"></label>
+        <input asp-for="Animal.Name" class="form-control" />
+        <span asp-validation-for="Animal.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label fw-semibold">Species (Category)</label>
+        <select asp-for="Animal.CategoryId" asp-items="Model.CategoryOptions" class="form-select"></select>
+        <span asp-validation-for="Animal.CategoryId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+    <a asp-page="Admin" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
