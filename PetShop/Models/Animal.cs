@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetShop.Models
 {
-    // Represents an adoptable or purchasable animal in the store
+    // Represents an adoptable animal in the store
     public class Animal
     {
         // Primary key for the Animal table
         public int AnimalId { get; set; }
 
-        // Name is required (e.g., "Bella")
+        // Name is required 
         [Required]
         public string Name { get; set; } = string.Empty;
 
@@ -17,7 +17,7 @@ namespace PetShop.Models
         [Required]
         public int CategoryId { get; set; }
 
-        // Navigation property to the Category this animal belongs to
+        // Navigation to the Category this animal belongs to
         public Category? Category { get; set; }
 
         // Additional details about the animal
@@ -29,10 +29,10 @@ namespace PetShop.Models
         [Column(TypeName = "decimal(10,2)")]
         public decimal Price { get; set; }
 
-        // Description used on details page
+        // Description
         public string Description { get; set; } = string.Empty;
 
-        // Path or filename of the animal's image
+        // Filename of the animal's image
         public string ImagePath { get; set; } = string.Empty;
 
         // Availability status (1 = available, 0 = not available)

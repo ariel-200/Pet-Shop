@@ -21,9 +21,6 @@ body {
   margin-bottom: 60px;
 }
 
-/* =========================
-   PetShop Theme: White + Blue
-   ========================= */
 
 /* Light blue palette */
 :root {
@@ -44,7 +41,6 @@ html, body {
     color: var(--ps-text);
 }
 
-/* Keep content from feeling edge-to-edge */
 .container {
     max-width: 1100px;
 }
@@ -76,7 +72,6 @@ h1, h2, h3 {
     font-weight: 800;
 }
 
-/* Cards / containers */
 .card,
 .table,
 .alert,
@@ -103,7 +98,7 @@ h1, h2, h3 {
     border-bottom: 1px solid var(--ps-border);
 }
 
-/* Buttons - make primary look like your theme */
+/* Buttons */
 .btn-primary {
     background-color: var(--ps-primary) !important;
     border-color: var(--ps-primary) !important;

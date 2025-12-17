@@ -21,7 +21,7 @@ namespace PetShop.Pages
 
             FinalTotal = HttpContext.Session.GetObject<decimal>("CheckoutTotal");
 
-            // Optional: clear checkout summary so refresh doesn't repeat it
+            // Clear checkout summary 
             HttpContext.Session.Remove("CheckoutItems");
             HttpContext.Session.Remove("CheckoutTotal");
         }

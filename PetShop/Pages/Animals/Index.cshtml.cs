@@ -17,8 +17,6 @@ namespace PetShop.Pages.Animals
         // Holds the list of categories (species) for the filter dropdown
         public List<Category> Categories { get; set; } = new();
 
-        // Bound property for the selected CategoryId.
-        // SupportsGet = true allows this value to be read from the query string (?SelectedCategoryId=1).
         [BindProperty(SupportsGet = true)]
         public int? SelectedCategoryId { get; set; }
 
@@ -28,7 +26,7 @@ namespace PetShop.Pages.Animals
             _context = context;
         }
 
-        // Handles GET requests to /Animals
+        // GET requests to /Animals
         public async Task OnGetAsync()
         {
             // Load all categories from the database for the filter dropdown
@@ -41,7 +39,7 @@ namespace PetShop.Pages.Animals
                 .Include(a => a.Category)
                 .Where(a => a.IsAvailable);
 
-            // If the user selected a species (category), filter the animals
+            // If the user selected a species, filter the animals
             if (SelectedCategoryId.HasValue)
             {
                 query = query.Where(a => a.CategoryId == SelectedCategoryId.Value);

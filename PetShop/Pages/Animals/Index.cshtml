@@ -12,8 +12,6 @@
 
 @* 
     FILTER SECTION
-    A simple form with a dropdown to filter animals by species (category).
-    The form uses GET so the filter value appears in the query string.
 *@
 <div class="container mb-4">
     <form method="get">
@@ -24,9 +22,7 @@
                 </label>
 
                 @*
-                    Dropdown is bound to SelectedCategoryId (in the PageModel).
-                    The SelectList is built from Model.Categories (CategoryId + Name).
-                    The first <option> is "All Species" with an empty value.
+                    The first option is "All Species" with an empty value.
                 *@
                 <select asp-for="SelectedCategoryId"
                         asp-items="@(new SelectList(Model.Categories, "CategoryId", "Name"))"
@@ -46,7 +42,6 @@
 
 @* 
     ANIMAL CARDS GRID
-    Displays animals in a responsive Bootstrap card grid.
 *@
 <div class="container">
     <div class="row g-4">

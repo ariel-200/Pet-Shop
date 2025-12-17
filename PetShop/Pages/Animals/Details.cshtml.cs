@@ -7,7 +7,6 @@ using PetShop.Models;
 
 namespace PetShop.Pages.Animals
 {
-    // Code-behind for the Animal Details page.
     // Displays information about a single animal and handles adding it to the cart.
     public class DetailsModel : PageModel
     {
@@ -22,10 +21,10 @@ namespace PetShop.Pages.Animals
             _context = context;
         }
 
-        // Handles GET requests like: /Animals/Details?id=1
+        // Handles GET requests
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            // If no id was supplied, return 404
+            // If no id was supplied,
             if (id == null)
             {
                 return NotFound();
@@ -36,17 +35,16 @@ namespace PetShop.Pages.Animals
                 .Include(a => a.Category)
                 .FirstOrDefaultAsync(a => a.AnimalId == id.Value);
 
-            // If no animal is found with that ID, return 404
+            // If no animal is found with that ID
             if (Animal == null)
             {
                 return NotFound();
             }
 
-            // Page will render with the Animal property filled in
             return Page();
         }
 
-        // Handles POST when the user clicks "Add to Cart"
+        //  When the user clicks "Add to Cart"
         public async Task<IActionResult> OnPostAsync(int? id)
         {
             // If the id is missing, send the user back to the list
@@ -69,7 +67,7 @@ namespace PetShop.Pages.Animals
             // do not add it to the cart again.
             if (!animal.IsAvailable)
             {
-                // Simply redirect to the cart or index; you could also show a message.
+                // Redirect to the cart or index
                 return RedirectToPage("/ShoppingCart");
             }
 

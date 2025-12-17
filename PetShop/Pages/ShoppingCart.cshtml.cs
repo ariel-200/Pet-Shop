@@ -27,13 +27,13 @@ namespace PetShop.Pages
             _context = context;
         }
 
-        // GET: /ShoppingCart
+        // GET ShoppingCart
         public void OnGet()
         {
             LoadCartAndTotals();
         }
 
-        // POST: Remove a single animal and make it available again
+        // Remove a single animal and make it available again
         public async Task<IActionResult> OnPostRemoveAsync(int animalId)
         {
             var cart = HttpContext.Session.GetObject<List<CartItem>>("Cart")
@@ -57,7 +57,7 @@ namespace PetShop.Pages
             return RedirectToPage();
         }
 
-        // POST: Clear cart and restore availability
+        // Clear cart and restore availability
         public async Task<IActionResult> OnPostClearAsync()
         {
             var cart = HttpContext.Session.GetObject<List<CartItem>>("Cart")
@@ -78,7 +78,7 @@ namespace PetShop.Pages
             return RedirectToPage();
         }
 
-        // POST: Checkout
+        // Checkout
         // Saves checkout summary, clears cart, pets remain unavailable
         public IActionResult OnPostCheckout()
         {

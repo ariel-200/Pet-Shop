@@ -6,10 +6,9 @@ namespace PetShop.Models
         // Primary key for the Category table
         public int CategoryId { get; set; }
 
-        // The name of the category (e.g., "Dog")
+        // The name of the category
         public string Name { get; set; } = string.Empty;
 
-        // Navigation property:
         // A category can contain many animals.
         public List<Animal> Animals { get; set; } = new();
     }
