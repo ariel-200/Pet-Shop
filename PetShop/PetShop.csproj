@@ -16,4 +16,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="PetShop.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
